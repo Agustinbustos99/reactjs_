@@ -4,8 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from './CartWidget';
 
 const NavBar = () => {
-  const cartItemCount = 3; // Puedes obtener esta cantidad desde tu estado o contexto de carrito
-
+  const cartItemCount = 3; 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -23,7 +22,7 @@ const NavBar = () => {
             </li>
           </ul>
 
-          {/* Agregar el componente del carrito (cart) */}
+         
           <CartWidget itemCount={cartItemCount} />
         </div>
       </div>
