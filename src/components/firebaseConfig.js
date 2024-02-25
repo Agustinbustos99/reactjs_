@@ -1,21 +1,22 @@
-// Import the functions you need from the SDKs you need
+// Importa las funciones que necesitas de los SDK que necesitas
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore } from "firebase/firestore"; // Importa getFirestore
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Configuración de tu aplicación de Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyDSAxvxrSEITkgUuN0ci05d_VO4K0KBUyY",
-  authDomain: "seguializ-commerce.firebaseapp.com",
-  projectId: "seguializ-commerce",
-  storageBucket: "seguializ-commerce.appspot.com",
-  messagingSenderId: "1011693193182",
-  appId: "1:1011693193182:web:88295a112ba5d76f9cff4f",
-  measurementId: "G-82VFV135XX"
+  apiKey: "AIzaSyBvshdNrpeXB6ieaCxIz63v9kfMFMSIxeM",
+  authDomain: "ecommerce-2b09a.firebaseapp.com",
+  projectId: "ecommerce-2b09a",
+  storageBucket: "ecommerce-2b09a.appspot.com",
+  messagingSenderId: "425018347753",
+  appId: "1:425018347753:web:15a955b6b1f32c51fae078",
+  measurementId: "G-SC0WQ4LN84"
 };
 
-// Initialize Firebase
+// Inicializa Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const db = getFirestore(app);
+
+export { db };
