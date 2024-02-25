@@ -1,40 +1,36 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NavBar from './components/NavBar';
-import Catalog from './components/Catalog';
-import ProductDetail from './components/Product';
-import reactLogo from './assets/react.svg';
 
-import './app.css';
+import NavBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCointaner';
+import Homepage from '../src/Homepage/Homepage'
+import Cart from './components/Cart/Cart';
+import Checkout from './components/Checkout/Checkout';
+
+import { CartProvider } from './context/CartContext';
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
-    <Router>
-      <div>
-        <div>
-          <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-            
-          </a>
-          <a href="https://react.dev" target="_blank" rel="noreferrer">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-        </div>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Catalog />} />
-          <Route path="/categoria1" element={<Catalog />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-        </Routes>
-        <h1>tu tienda online</h1>
-       
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
-      </div>
-    </Router>
-  );
+    <div className='App'>
+      <BrowserRouter>
+        <CartProvider>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/category/:categoryId" element={<ItemListContainer />} />
+            <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path='*' element={<h1>404 NOT FOUND</h1>}></Route>
+          </Routes>
+        </CartProvider>
+      </BrowserRouter>
+    </div>
+
+  )
+
+
 }
 
-export default App;
+export default App
